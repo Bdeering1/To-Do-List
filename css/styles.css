@@ -10,9 +10,9 @@ body {
   padding: 10px;
   display: -ms-grid;
   display: grid;
-  grid: "header header header header header" auto ". lists active . ." auto/1fr minmax(100px, 300px) minmax(250px, 600px) 1fr 1fr;
-  font-family: "Cabin";
-  font-size: 1.5rem;
+  grid: "header header header header header" auto ". lists active . ." auto/1fr minmax(150px, 200px) minmax(350px, 600px) minmax(0, 200px) 1fr;
+  font-family: "Nunito", "Helvetica", sans-serif;
+  font-size: 1.4rem;
   background-color: #dd3333;
   color: #f4f4f4;
 }
@@ -20,27 +20,23 @@ body {
 .title {
   margin: 0 0 0.5em;
   text-align: center;
-  letter-spacing: 2px;
   grid-area: header;
+  font-family: "Raleway", "Helvetica", sans-serif;
   font-size: calc(3vw + 3rem);
-  font-weight: bolder;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.1);
 }
 
 .all-lists {
   grid-area: lists;
+  margin: 10px;
 }
 
 .all-lists .item-lists {
   padding-left: 1.1em;
   font-size: 1.2rem;
-  line-height: 1.7;
+  line-height: 1.8;
   list-style: circle;
-}
-
-.all-lists .item-lists .active-list {
-  font-weight: bolder;
-  letter-spacing: 1px;
 }
 
 .all-lists .item-lists .list-name {
@@ -49,10 +45,16 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  font-weight: lighter;
 }
 
 .all-lists .item-lists .list-name:hover {
   opacity: 0.7;
+}
+
+.all-lists .item-lists .active-list {
+  font-weight: bolder;
+  letter-spacing: 1px;
 }
 
 .to-do-list {
@@ -112,8 +114,10 @@ body {
 }
 
 .to-do-list .to-do-body .tasks .custom-checkbox {
-  width: 0.75em;
-  height: 0.75em;
+  min-width: 0.75em;
+  min-height: 0.75em;
+  max-width: 0.75em;
+  max-height: 0.75em;
   margin-right: 0.75em;
   border: 2px solid currentColor;
   border-radius: 50%;
@@ -230,7 +234,7 @@ p {
 .btn--create {
   margin: 0.25em;
   font-size: 1.5rem;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 .btn:hover {
