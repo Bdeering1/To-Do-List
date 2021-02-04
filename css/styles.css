@@ -1,0 +1,331 @@
+::before,
+::after {
+  font-family: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  grid: "header header header header header" auto ". lists active . ." auto/1fr minmax(100px, 300px) minmax(250px, 600px) 1fr 1fr;
+  font-family: "Cabin";
+  font-size: 1.5rem;
+  background-color: #1D3557;
+  color: #f4f4f4;
+}
+
+.title {
+  margin: 0 0 0.5em;
+  text-align: center;
+  letter-spacing: 2px;
+  grid-area: header;
+  font-size: calc(3vw + 3rem);
+  font-weight: bolder;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.all-lists {
+  grid-area: lists;
+}
+
+.all-lists .item-lists {
+  padding-left: 1.1em;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  list-style: circle;
+}
+
+.all-lists .item-lists .active-list {
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+.all-lists .item-lists .list-name {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.all-lists .item-lists .list-name:hover {
+  opacity: 0.7;
+}
+
+.to-do-list {
+  grid-area: active;
+  background: #f4f4f4;
+  color: #333;
+  opacity: 0.9;
+}
+
+.to-do-list .to-do-header {
+  padding: 2rem;
+  background: #e4e4e4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.to-do-list .to-do-header .tasks-title {
+  margin: 0 1em 0 0;
+}
+
+.to-do-list .to-do-header .task-count {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.to-do-list .to-do-body {
+  padding: 2rem;
+  position: relative;
+}
+
+.to-do-list .to-do-body .tasks .task {
+  position: relative;
+  margin-bottom: 1.25em;
+}
+
+.to-do-list .to-do-body .tasks .task::after {
+  content: "";
+  right: 0;
+  left: 0;
+  bottom: -0.5em;
+  height: 1px;
+  position: absolute;
+  background: currentColor;
+  opacity: 0.1;
+}
+
+.to-do-list .to-do-body .tasks [type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.to-do-list .to-do-body .tasks .custom-checkbox {
+  width: 0.75em;
+  height: 0.75em;
+  margin-right: 0.75em;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  display: inline-block;
+  -webkit-transition: -webkit-transform 150ms;
+  transition: -webkit-transform 150ms;
+  transition: transform 150ms;
+  transition: transform 150ms, -webkit-transform 150ms;
+}
+
+.to-do-list .to-do-body .tasks .task:hover .custom-checkbox,
+.to-do-list .to-do-body .tasks [type="checkbox"]:focus + label .custom-checkbox {
+  color: #1D3557;
+}
+
+.to-do-list .to-do-body .tasks [type="checkbox"]:checked + label .custom-checkbox {
+  border-color: #1D3557;
+  background: #1D3557;
+  -webkit-box-shadow: inset 0 0 0 2px #f4f4f4;
+          box-shadow: inset 0 0 0 2px #f4f4f4;
+}
+
+.to-do-list .to-do-body .tasks .task label p {
+  -webkit-transition: color 200ms ease-out;
+  transition: color 200ms ease-out;
+}
+
+.to-do-list .to-do-body .tasks [type="checkbox"]:checked + label p {
+  opacity: 0.5;
+  color: #1D3557;
+}
+
+.to-do-list .to-do-body .tasks .task label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.to-do-list .to-do-body .tasks .task label::after {
+  content: "";
+  position: absolute;
+  left: 1.6em;
+  right: 0;
+  top: 50%;
+  height: 3px;
+  background: currentColor;
+  opacity: 0.5;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: color 200ms ease-out, -webkit-transform 150ms;
+  transition: color 200ms ease-out, -webkit-transform 150ms;
+  transition: transform 150ms, color 200ms ease-out;
+  transition: transform 150ms, color 200ms ease-out, -webkit-transform 150ms;
+}
+
+.to-do-list .to-do-body .tasks [type="checkbox"]:checked + label::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  color: #1D3557;
+}
+
+.to-do-list .to-do-body .btn--create {
+  color: #1D3557;
+}
+
+.to-do-list .to-do-body .delete-options {
+  left: 2rem;
+  right: 2rem;
+  bottom: -30px;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #f4f4f4;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+p {
+  margin: 0;
+}
+
+.btn {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: 0;
+  color: inherit;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.btn--create {
+  margin: 0.25em;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.btn--delete {
+  opacity: 0.7;
+  font-size: 1rem;
+  -webkit-transition: color 150ms;
+  transition: color 150ms;
+}
+
+.btn--delete:hover {
+  color: #333;
+}
+
+.new {
+  padding: 0.25em;
+  border: 0;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  outline: none;
+  font-size: inherit;
+  background: transparent;
+  color: inherit;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.new--list {
+  font-size: 1.1rem;
+}
+
+.underline {
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  margin-left: 1.5rem;
+  position: absolute;
+  background: currentColor;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: width 300ms ease-in-out;
+  transition: width 300ms ease-in-out;
+}
+
+.underline--two {
+  background: #1D3557;
+}
+
+.new:focus + .underline {
+  width: 80%;
+}
+
+.new::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.3;
+}
+
+.new:-ms-input-placeholder {
+  color: inherit;
+  opacity: 0.3;
+}
+
+.new::-ms-input-placeholder {
+  color: inherit;
+  opacity: 0.3;
+}
+
+.new::placeholder {
+  color: inherit;
+  opacity: 0.3;
+}
+
+.new:focus {
+  border-bottom-width: 3px;
+}
+
+.new:focus::-webkit-input-placeholder {
+  opacity: 0.15;
+}
+
+.new:focus:-ms-input-placeholder {
+  opacity: 0.15;
+}
+
+.new:focus::-ms-input-placeholder {
+  opacity: 0.15;
+}
+
+.new:focus::placeholder {
+  opacity: 0.15;
+}
+/*# sourceMappingURL=styles.css.map */
