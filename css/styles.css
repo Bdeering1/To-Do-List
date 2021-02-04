@@ -13,7 +13,7 @@ body {
   grid: "header header header header header" auto ". lists active . ." auto/1fr minmax(100px, 300px) minmax(250px, 600px) 1fr 1fr;
   font-family: "Cabin";
   font-size: 1.5rem;
-  background-color: #1D3557;
+  background-color: #dd3333;
   color: #f4f4f4;
 }
 
@@ -126,12 +126,16 @@ body {
 
 .to-do-list .to-do-body .tasks .task:hover .custom-checkbox,
 .to-do-list .to-do-body .tasks [type="checkbox"]:focus + label .custom-checkbox {
-  color: #1D3557;
+  color: #dd3333;
+}
+
+.to-do-list .to-do-body .tasks [type="checkbox"]:focus + label {
+  opacity: 0.85;
 }
 
 .to-do-list .to-do-body .tasks [type="checkbox"]:checked + label .custom-checkbox {
-  border-color: #1D3557;
-  background: #1D3557;
+  border-color: #dd3333;
+  background: #dd3333;
   -webkit-box-shadow: inset 0 0 0 2px #f4f4f4;
           box-shadow: inset 0 0 0 2px #f4f4f4;
 }
@@ -143,7 +147,7 @@ body {
 
 .to-do-list .to-do-body .tasks [type="checkbox"]:checked + label p {
   opacity: 0.5;
-  color: #1D3557;
+  color: #dd3333;
 }
 
 .to-do-list .to-do-body .tasks .task label {
@@ -179,11 +183,11 @@ body {
 .to-do-list .to-do-body .tasks [type="checkbox"]:checked + label::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
-  color: #1D3557;
+  color: #dd3333;
 }
 
 .to-do-list .to-do-body .btn--create {
-  color: #1D3557;
+  color: #dd3333;
 }
 
 .to-do-list .to-do-body .delete-options {
@@ -242,7 +246,7 @@ p {
 }
 
 .btn--delete:hover {
-  color: #ac1212;
+  color: #333;
 }
 
 .new {
@@ -283,7 +287,7 @@ p {
 }
 
 .underline--two {
-  background: #1D3557;
+  background: #dd3333;
 }
 
 .new:focus + .underline {
