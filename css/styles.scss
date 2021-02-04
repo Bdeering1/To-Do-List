@@ -2,7 +2,7 @@ $color-primary: #1D3557;
 ; //rgb(54, 112, 199);
 $color-light: #f4f4f4;
 $color-dark: #333;
-$color-warning: rgb(99, 36, 36);
+$color-warning: rgb(172, 18, 18);
 
 ::before,
 ::after {
@@ -180,7 +180,7 @@ body {
         .delete-options {
             left: $spacer;
             right: $spacer;
-            bottom: -30px;
+            bottom: -40px;
             position: absolute;
             display: flex;
             justify-content: space-between;
@@ -223,13 +223,14 @@ p {
 }
 
 .btn--delete {
+    height: 40px;
     opacity: 0.7;
     font-size: 1rem;
     transition: color 150ms;
 }
 
 .btn--delete:hover {
-    color: $color-dark;
+    color: $color-warning;
 }
 
 .new {
