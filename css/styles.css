@@ -133,6 +133,7 @@ body {
   color: #dd3333;
 }
 
+.to-do-list .to-do-body .tasks .task:hover label,
 .to-do-list .to-do-body .tasks [type="checkbox"]:focus + label {
   opacity: 0.85;
 }
@@ -197,7 +198,7 @@ body {
 .to-do-list .to-do-body .delete-options {
   left: 2rem;
   right: 2rem;
-  bottom: -40px;
+  bottom: -80px;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;

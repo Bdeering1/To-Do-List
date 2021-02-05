@@ -68,8 +68,9 @@
                 </div>
             </div>
             <div class="new-task-creator">
-                <form action="">
-                    <input type="text" class="new new--task" placeholder="new task" aria-label="new task name">
+                <form action="" data-new-task-form>
+                    <input type="text" class="new new--task" placeholder="new task" aria-label="new task name"
+                        data-new-task-input>
                     <span class="underline underline--two"></span>
                     <button class="btn btn--create" aria-label="create new task">+</button>
                 </form>
@@ -81,6 +82,15 @@
         </div>
     </div>
 
+    <template data-task-template>
+        <div class="task">
+            <input type="checkbox">
+            <label>
+                <span class="custom-checkbox"></span>
+                <p></p>
+            </label>
+        </div>
+    </template>
 </body>
 
 </html>
