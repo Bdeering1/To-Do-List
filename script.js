@@ -40,6 +40,7 @@ newListForm.addEventListener('submit', e => {
     const list = createList(listName);
     newListInput.value = null;
     lists.push(list);
+    selectedListId = list.id;
     saveAndRender();
 });
 
