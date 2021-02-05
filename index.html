@@ -21,11 +21,7 @@
 
     <div class="all-lists">
         <h2 class="all-lists-title">my lists</h2>
-        <ul class="item-lists" data-lists>
-            <!-- <li class="list-name active-list">School</li>
-            <li class="list-name ">Work</li>
-            <li class="list-name ">Grocery</li> -->
-        </ul>
+        <ul class="item-lists" data-lists></ul>
 
         <form action="" data-new-list-form>
             <input type="text" class="new new--list" placeholder="new list" aria-label="new list name"
@@ -37,35 +33,12 @@
 
     <div class="to-do-list" data-list-display-container>
         <div class="to-do-header">
-            <h2 class="tasks-title" data-list-title>School</h2>
-            <p class="task-count" data-task-count>3 items remaining</p>
+            <h2 class="tasks-title" data-list-title></h2>
+            <p class="task-count" data-task-count></p>
         </div>
 
         <div class="to-do-body">
             <div class="tasks" data-tasks>
-                <div class="task">
-                    <input type="checkbox" id="task-1">
-                    <label for="task-1">
-                        <span class="custom-checkbox"></span>
-                        <p>operating systems assignment</p>
-                    </label>
-                </div>
-
-                <div class="task">
-                    <input type="checkbox" id="task-2">
-                    <label for="task-2">
-                        <span class="custom-checkbox"></span>
-                        <p>econ quiz</p>
-                    </label>
-                </div>
-
-                <div class="task">
-                    <input type="checkbox" id="task-3">
-                    <label for="task-3">
-                        <span class="custom-checkbox"></span>
-                        <p>task 3</p>
-                    </label>
-                </div>
             </div>
             <div class="new-task-creator">
                 <form action="" data-new-task-form>
@@ -76,7 +49,7 @@
                 </form>
             </div>
             <div class="delete-options">
-                <button class="btn btn--delete">clear completed</button>
+                <button class="btn btn--delete" data-clear-completed-button>clear completed</button>
                 <button class="btn btn--delete" data-delete-list-button>delete list</button>
             </div>
         </div>
