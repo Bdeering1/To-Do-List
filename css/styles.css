@@ -59,6 +59,9 @@ body {
 
 .to-do-list {
   grid-area: active;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   background: #f4f4f4;
   color: #333;
   opacity: 0.9;
@@ -198,7 +201,7 @@ body {
 .to-do-list .to-do-body .delete-options {
   left: 2rem;
   right: 2rem;
-  bottom: -80px;
+  bottom: -40px;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;

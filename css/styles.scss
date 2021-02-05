@@ -68,9 +68,10 @@ body {
     $spacer: 2rem;
 
     grid-area: active;
+    height: fit-content;
+
     background: $color-light;
     color: $color-dark;
-
     opacity: 0.9;
 
     .to-do-header {
@@ -192,7 +193,7 @@ body {
         .delete-options {
             left: $spacer;
             right: $spacer;
-            bottom: -80px; //fix
+            bottom: -40px;
             position: absolute;
             display: flex;
             justify-content: space-between;
