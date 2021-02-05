@@ -25,15 +25,15 @@ body {
 }
 
 .title {
-    margin: 0 0 0.5em;
+    margin: 0 0 0.8em;
     text-align: center;
-    //letter-spacing: 2px;
 
     grid-area: header;
     font-family: "Raleway", "Helvetica", sans-serif;
     font-size: calc(3vw + 3rem);
     font-weight: bold;
-    color: rgba(0, 0, 0, 0.1);
+    color: $color-light;
+    opacity: 0.8;
 }
 
 .all-lists {
@@ -94,8 +94,6 @@ body {
     .to-do-body {
         padding: $spacer;
         position: relative;
-
-        //font-family: "Arima Madurai";
 
         .tasks {
 
@@ -245,12 +243,10 @@ p {
 .new {
     padding: 0.25em;
     border: 0;
-    //border-bottom: 1px solid currentColor;
     order: 2;
 
     outline: none;
     font-size: inherit;
-    //font-family: "Arima Madurai";
     background: transparent;
     color: inherit;
     user-select: none;
