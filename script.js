@@ -28,8 +28,10 @@ tasksContainer.addEventListener('click', e => {
         const selectedTask = getSelectedList().tasks.find(task => task.id === e.target.querySelector('input').id);
         selectedTask.complete = !e.target.querySelector('input').checked;
         saveAndRender();
-    } else {
-        console.log("bruh");
+    } else if (e.target.tagName.toLowerCase() === 'input') {
+        const selectedTask = getSelectedList().tasks.find(task => task.id === e.target.id);
+        selectedTask.complete = e.target.checked;
+        saveAndRender();
     }
 });
 
