@@ -27,11 +27,13 @@ tasksContainer.addEventListener('click', e => {
     if (e.target.hasAttribute('data-task')) {
         const selectedTask = getSelectedList().tasks.find(task => task.id === e.target.querySelector('input').id);
         selectedTask.complete = !e.target.querySelector('input').checked;
-        saveAndRender();
+        save();
+        renderTaskCount(getSelectedList());
     } else if (e.target.tagName.toLowerCase() === 'input') {
         const selectedTask = getSelectedList().tasks.find(task => task.id === e.target.id);
         selectedTask.complete = e.target.checked;
-        saveAndRender();
+        save();
+        renderTaskCount(getSelectedList());
     }
 });
 
