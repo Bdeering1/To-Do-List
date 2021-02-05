@@ -24,12 +24,12 @@ listsContainer.addEventListener('click', e => {
 });
 
 tasksContainer.addEventListener('click', e => {
-    if (e.target.tagName.toLowerCase() === 'input') {
-        const selectedList = lists.find(list => list.id === selectedListId);
-        const selectedTask = selectedList.tasks.find(task => task.id === e.target.id);
-        selectedTask.complete = e.target.checked;
-        save();
-        renderTaskCount(selectedList);
+    if (e.target.hasAttribute('data-task')) {
+        const selectedTask = getSelectedList().tasks.find(task => task.id === e.target.querySelector('input').id);
+        selectedTask.complete = !e.target.querySelector('input').checked;
+        saveAndRender();
+    } else {
+        console.log("bruh");
     }
 });
 
@@ -50,8 +50,7 @@ newTaskForm.addEventListener('submit', e => {
     if (taskName == null || taskName == '') return;
     const task = createTask(taskName);
     newTaskInput.value = null;
-    const selectedList = lists.find(list => list.id === selectedListId);
-    selectedList.tasks.push(task);
+    getSelectedList().tasks.push(task);
     saveAndRender();
 });
 
@@ -62,10 +61,13 @@ deleteListButton.addEventListener('click', e => {
 });
 
 clearCompletedButton.addEventListener('click', e => {
-    const selectedList = lists.find(list => list.id === selectedListId);
-    selectedList.tasks = selectedList.tasks.filter(task => !task.complete);
+    getSelectedList().tasks = selectedList.tasks.filter(task => !task.complete);
     saveAndRender();
 });
+
+function getSelectedList() {
+    return lists.find(list => list.id === selectedListId);
+}
 
 function createList(name) {
     return {
@@ -93,7 +95,7 @@ function render() {
     clearElement(listsContainer);
     renderLists();
 
-    const selectedList = lists.find(list => list.id === selectedListId);
+    selectedList = getSelectedList();
     if (selectedListId == null) {
         listDisplayContainer.style.display = 'none';
     } else {
@@ -122,8 +124,8 @@ function renderTasks(selectedList) {
     selectedList.tasks.forEach(task => {
         const taskElement = document.importNode(taskTemplate.content, true);
         const checkbox = taskElement.querySelector('input');
-        checkbox.id = task.id;
         checkbox.checked = task.complete;
+        checkbox.id = task.id;
         const label = taskElement.querySelector('label');
         label.htmlFor = task.id;
         const taskText = document.createElement('p');
