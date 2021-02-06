@@ -1,7 +1,7 @@
 # To-Do-List
 To do list application using SCSS and JavaScript. 
 
-Press f to enable focus mode!  
+*press f to enable focus mode*  
   
 ### Features
   
