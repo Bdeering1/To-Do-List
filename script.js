@@ -62,7 +62,11 @@ newTaskForm.addEventListener('submit', e => {
 
 deleteListButton.addEventListener('click', e => {
     lists = lists.filter(list => list.id !== selectedListId);
-    selectedListId = 'none';
+    if (lists.length > 0) {
+        selectedListId = lists[lists.length - 1].id;
+    } else {
+        selectedListId = 'none';
+    }
     saveAndRender();
 });
 
