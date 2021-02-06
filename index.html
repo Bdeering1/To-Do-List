@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
-<html>
+<html land="en">
 
 <head>
     <title>To Do List</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -15,10 +16,9 @@
 </head>
 
 <body>
-    <h1 class="title">Task Organizer</To>
-    </h1>
+    <h1 class="title" data-page-title>Task Organizer</h1>
 
-    <div class="all-lists">
+    <div class="all-lists" data-lists-display-container>
         <h2 class="all-lists-title">my lists</h2>
         <ul class="item-lists" data-lists></ul>
 
@@ -30,9 +30,9 @@
         </form>
     </div>
 
-    <div class="to-do-list" data-list-display-container>
+    <div class="to-do-list" data-tasks-display-container>
         <div class="to-do-header">
-            <h2 class="tasks-title" data-list-title></h2>
+            <h2 class="tasks-title" data-tasks-title></h2>
             <p class="task-count" data-task-count></p>
         </div>
 
