@@ -28,7 +28,8 @@ listsContainer.addEventListener('click', e => {
 tasksContainer.addEventListener('click', e => {
     if (e.target.hasAttribute('data-task')) {
         const selectedTask = getSelectedList().tasks.find(task => task.id === e.target.querySelector('input').id);
-        selectedTask.complete = !e.target.querySelector('input').checked;
+        selectedTask.complete = !selectedTask.complete;
+        e.target.querySelector('input').checked = selectedTask.complete;
         save();
         renderTaskCount(getSelectedList());
     } else if (e.target.tagName.toLowerCase() === 'input') {
@@ -137,9 +138,7 @@ function renderLists() {
         listElement.dataset.listId = list.id;
         listElement.classList.add('list-name');
         listElement.innerText = list.name;
-        if (list.id === selectedListId) {
-            listElement.classList.add('active-list');
-        }
+        if (list.id === selectedListId) listElement.classList.add('active-list');
         listsContainer.appendChild(listElement);
     });
 }
@@ -172,4 +171,7 @@ function clearElement(element) {
 }
 
 
+if (selectedListId == null) { /*resolves a previous problem with local storage*/
+    selectedListId = 'none';
+}
 render();
