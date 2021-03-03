@@ -16,52 +16,58 @@
 </head>
 
 <body>
-    <h1 class="title" data-page-title>Task Organizer</h1>
+    <header>
+        <h1 class="title" data-page-title>My To Do</h1>
+    </header>
 
-    <div class="all-lists" data-lists-display-container>
-        <h2 class="all-lists-title">my lists</h2>
-        <ul class="item-lists" data-lists></ul>
+    <main>
+        <div class="wrapper-grid">
+            <div class="all-lists" data-lists-display-container>
+                <h2 class="all-lists-title">my lists</h2>
+                <ul class="item-lists" data-lists></ul>
 
-        <form action="" data-new-list-form>
-            <input type="text" class="new new--list" placeholder="new list" aria-label="new list name"
-                data-new-list-input>
-            <span class="underline underline--one"></span>
-            <button class="btn btn--create" aria-label="create new list">+</button>
-        </form>
-    </div>
-
-    <div class="to-do-list" data-tasks-display-container>
-        <div class="to-do-header">
-            <h2 class="tasks-title" data-tasks-title></h2>
-            <p class="task-count" data-task-count></p>
-        </div>
-
-        <div class="to-do-body">
-            <div class="tasks" data-tasks></div>
-            <div class="new-task-creator">
-                <form action="" data-new-task-form>
-                    <input type="text" class="new new--task" placeholder="new task" aria-label="new task name"
-                        data-new-task-input>
-                    <span class="underline underline--two"></span>
-                    <button class="btn btn--create" aria-label="create new task">+</button>
+                <form action="" data-new-list-form>
+                    <input type="text" class="new new--list" placeholder="new list" aria-label="new list name"
+                        data-new-list-input>
+                    <span class="underline underline--one"></span>
+                    <button class="btn btn--create" aria-label="create new list">+</button>
                 </form>
             </div>
-            <div class="delete-options">
-                <button class="btn btn--delete" data-clear-completed-button>clear completed</button>
-                <button class="btn btn--delete" data-delete-list-button>delete list</button>
+
+            <div class="to-do-list" data-tasks-display-container>
+                <div class="to-do-header">
+                    <h2 class="tasks-title" data-tasks-title></h2>
+                    <p class="task-count" data-task-count></p>
+                </div>
+
+                <div class="to-do-body">
+                    <div class="tasks" data-tasks></div>
+                    <div class="new-task-creator">
+                        <form action="" data-new-task-form>
+                            <input type="text" class="new new--task" placeholder="new task" aria-label="new task name"
+                                data-new-task-input>
+                            <span class="underline underline--two"></span>
+                            <button class="btn btn--create" aria-label="create new task">+</button>
+                        </form>
+                    </div>
+                    <div class="delete-options">
+                        <button class="btn btn--delete" data-clear-completed-button>clear completed</button>
+                        <button class="btn btn--delete" data-delete-list-button>delete list</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <template data-task-template>
-        <div class="task" data-task>
-            <input type="checkbox">
-            <label>
-                <span class="custom-checkbox"></span>
-                <p></p>
-            </label>
-        </div>
-    </template>
+        <template data-task-template>
+            <div class="task" data-task>
+                <input type="checkbox">
+                <label>
+                    <span class="custom-checkbox"></span>
+                    <p></p>
+                </label>
+            </div>
+        </template>
+    </main>
 </body>
 
 </html>

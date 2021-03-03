@@ -7,18 +7,31 @@
 
 body {
   margin: 0;
-  padding: 10px;
-  display: -ms-grid;
-  display: grid;
-  grid: "header header header header header" auto ". lists active . ." auto/1fr minmax(150px, 200px) minmax(350px, 600px) minmax(0, 200px) 1fr;
   font-family: "Nunito", "Helvetica", sans-serif;
   font-size: 1.4rem;
   background-color: #65689F;
   color: #f4f4f4;
 }
 
+main {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrapper-grid {
+  display: -ms-grid;
+  display: grid;
+  grid-template: ". lists active . ."/1fr minmax(150px, 200px) minmax(350px, 600px) minmax(0, 200px) 1fr;
+}
+
 .title {
-  margin: 0 0 0.8em;
+  width: 100%;
+  margin: 5vh 0;
   text-align: center;
   grid-area: header;
   font-family: "Raleway", "Helvetica", sans-serif;
@@ -63,6 +76,7 @@ body {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  border-radius: 4px;
   background: #f4f4f4;
   color: #333;
   opacity: 0.9;
@@ -70,6 +84,7 @@ body {
 
 .to-do-list .to-do-header {
   padding: 2rem;
+  border-radius: 4px;
   background: #e4e4e4;
   display: -webkit-box;
   display: -ms-flexbox;

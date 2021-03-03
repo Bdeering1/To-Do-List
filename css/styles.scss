@@ -11,10 +11,6 @@ $color-warning: rgb(172, 18, 18);
 
 body {
     margin: 0;
-    padding: 10px;
-
-    display: grid;
-    grid: "header header header header header"auto ". lists active . ."auto / 1fr minmax(150px, 200px) minmax(350px, 600px) minmax(0, 200px) 1fr;
 
     font-family: "Nunito", "Helvetica", sans-serif;
     font-size: 1.4rem;
@@ -22,8 +18,20 @@ body {
     color: $color-light;
 }
 
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper-grid {
+    display: grid;
+    grid-template: ". lists active . ." / 1fr minmax(150px, 200px) minmax(350px, 600px) minmax(0, 200px) 1fr;
+}
+
 .title {
-    margin: 0 0 0.8em;
+    width: 100%;
+    margin: 5vh 0;
     text-align: center;
 
     grid-area: header;
@@ -66,6 +74,7 @@ body {
 
     grid-area: active;
     height: fit-content;
+    border-radius: 4px;
 
     background: $color-light;
     color: $color-dark;
@@ -73,6 +82,7 @@ body {
 
     .to-do-header {
         padding: $spacer;
+        border-radius: 4px;
         background: #e4e4e4;
         display: flex;
         justify-content: space-between;
