@@ -1,5 +1,6 @@
-::before,
-::after {
+*,
+*::before,
+*::after {
   font-family: inherit;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -11,22 +12,6 @@ body {
   font-size: 1.4rem;
   background-color: #65689F;
   color: #f4f4f4;
-}
-
-main {
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.wrapper-grid {
-  display: -ms-grid;
-  display: grid;
-  grid-template: ". lists active . ."/1fr minmax(150px, 200px) minmax(350px, 600px) minmax(0, 200px) 1fr;
 }
 
 .title {
@@ -41,9 +26,21 @@ main {
   opacity: 0.7;
 }
 
+.wrapper-grid {
+  display: -ms-grid;
+  display: grid;
+  grid-template: ". lists active . ."/1fr minmax(200px, 250px) minmax(350px, 600px) minmax(1rem, 250px) 1fr;
+}
+
 .all-lists {
   grid-area: lists;
-  margin: 10px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  padding-left: 1rem;
+}
+
+.all-lists .all-lists-title {
+  margin: 2rem 0;
 }
 
 .all-lists .item-lists {
@@ -54,6 +51,7 @@ main {
 }
 
 .all-lists .item-lists .list-name {
+  padding-right: 1.5em;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -67,8 +65,9 @@ main {
 }
 
 .all-lists .item-lists .active-list {
+  padding-right: 0.5em;
   font-weight: bolder;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
 }
 
 .to-do-list {
@@ -98,7 +97,7 @@ main {
 }
 
 .to-do-list .to-do-header .tasks-title {
-  margin: 0 1em 0 0;
+  margin: 0;
 }
 
 .to-do-list .to-do-header .task-count {
@@ -228,6 +227,44 @@ main {
   color: #f4f4f4;
 }
 
+.to-do-list--placeholder {
+  grid-area: active;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.to-do-list--placeholder p {
+  padding: 0.5em;
+  border: 3px solid #f4f4f4;
+  border-radius: 10px;
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+.to-do-list--placeholder .create-list-hint {
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  position: absolute;
+  -webkit-transform: translateY(-10px) translateX(-135px);
+          transform: translateY(-10px) translateX(-135px);
+  font-size: 1.1rem;
+  opacity: 0.3;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: -1;
+}
+
 form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -236,7 +273,7 @@ form {
 }
 
 p {
-  margin: 0;
+  margin: 0.25em 0;
 }
 
 .btn {
@@ -274,6 +311,7 @@ p {
 }
 
 .new {
+  width: 100%;
   padding: 0.25em;
   border: 0;
   -webkit-box-ordinal-group: 3;
@@ -287,8 +325,6 @@ p {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transform-origin: left;
-          transform-origin: left;
 }
 
 .new--list {
@@ -336,10 +372,6 @@ p {
 .new::placeholder {
   color: inherit;
   opacity: 0.3;
-}
-
-.new:focus {
-  border-bottom-width: 3px;
 }
 
 .new:focus::-webkit-input-placeholder {

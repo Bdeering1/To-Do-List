@@ -5,6 +5,8 @@ const newListForm = document.querySelector('[data-new-list-form]');
 const newListInput = document.querySelector('[data-new-list-input]');
 const deleteListButton = document.querySelector('[data-delete-list-button]');
 const tasksDisplayContainer = document.querySelector('[data-tasks-display-container]');
+const tasksDisplayPlaceholder = document.querySelector('[data-tasks-display-placeholder]');
+const createListHint = document.querySelector('[data-create-list-hint]');
 const tasksTitleElement = document.querySelector('[data-tasks-title]');
 const taskCountElement = document.querySelector('[data-task-count]');
 const tasksContainer = document.querySelector('[data-tasks]');
@@ -18,10 +20,13 @@ const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY) || 'none';
 
-listsContainer.addEventListener('click', e => {
+listsDisplayContainer.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'li') {
         selectedListId = e.target.dataset.listId;
         saveAndRender();
+    }
+    if (newListInput === document.activeElement && createListHint.style.display !== 'none') {
+        createListHint.style.display = 'none';
     }
 });
 
@@ -120,11 +125,14 @@ function render() {
     clearElement(listsContainer);
     renderLists();
 
-    if (selectedListId == 'none') {
+    if (selectedListId == 'none') { /* if there are no lists, the task display container is removed from DOM */
         tasksDisplayContainer.style.display = 'none';
+        tasksDisplayPlaceholder.style.display = '';
+        createListHint.style.display = '';
     } else {
         let selectedList = getSelectedList();
         tasksDisplayContainer.style.display = '';
+        tasksDisplayPlaceholder.style.display = 'none';
         tasksTitleElement.innerText = selectedList.name;
         renderTaskCount(selectedList);
         clearElement(tasksContainer);
