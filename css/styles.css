@@ -18,7 +18,7 @@ body {
   width: 100%;
   margin: 5vh 0;
   text-align: center;
-  grid-area: header;
+  display: none;
   font-family: "Raleway", "Helvetica", sans-serif;
   font-size: calc(3vw + 3rem);
   font-weight: bold;
@@ -26,13 +26,31 @@ body {
   opacity: 0.7;
 }
 
+@media (min-width: 850px) {
+  .title {
+    display: inline-block;
+  }
+}
+
 .wrapper-grid {
   display: -ms-grid;
   display: grid;
-  grid-template: ". lists active . ."/1fr minmax(200px, 250px) minmax(350px, 600px) minmax(1rem, 250px) 1fr;
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
+  -ms-grid-columns: 1fr minmax(200px, 600px) 1fr;
+      grid-template-columns: 1fr minmax(200px, 600px) 1fr;
+      grid-template-areas: " . active . " " . lists . ";
+}
+
+@media (min-width: 850px) {
+  .wrapper-grid {
+    grid-template: ". lists active . ."/1fr minmax(200px, 250px) minmax(350px, 600px) minmax(1rem, 250px) 1fr;
+  }
 }
 
 .all-lists {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
   grid-area: lists;
   -ms-grid-column-align: center;
       justify-self: center;
@@ -71,7 +89,10 @@ body {
 }
 
 .to-do-list {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
   grid-area: active;
+  margin: 10px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -227,7 +248,15 @@ body {
   color: #f4f4f4;
 }
 
+@media (min-width: 850px) {
+  .to-do-list {
+    margin: 0;
+  }
+}
+
 .to-do-list--placeholder {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
   grid-area: active;
   display: -webkit-box;
   display: -ms-flexbox;
