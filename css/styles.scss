@@ -12,7 +12,6 @@ $color-warning: rgb(172, 18, 18);
 
 body {
     margin: 0;
-
     font-family: "Nunito", "Helvetica", sans-serif;
     font-size: 1.4rem;
     background-color: $color-primary;
@@ -32,25 +31,14 @@ body {
     opacity: 0.7;
 }
 
-@media (min-width: 850px) {
-    .title {
-        display: inline-block;
-    }
-}
-
 .wrapper-grid {
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: 1fr minmax(200px, 600px) 1fr;
     grid-template-areas:
     " . active . "
-    " . lists . "
-}
-
-@media (min-width: 850px) {
-    .wrapper-grid {
-        grid-template: ". lists active . ." / 1fr minmax(200px, 250px) minmax(350px, 600px) minmax(1rem, 250px) 1fr;
-    }
+    " . lists . ";
+    margin-top: 10vh;
 }
 
 .all-lists {
@@ -61,7 +49,6 @@ body {
     .all-lists-title {
         margin: 2rem 0;
     }
-
     .item-lists {
         padding-left: 1.1em;
         font-size: 1.2rem;
@@ -74,11 +61,9 @@ body {
             user-select: none;
             font-weight: lighter;
         }
-
         .list-name:hover {
             opacity: 0.7;
         }
-
         .active-list {
             padding-right: 0.5em;
             font-weight: bolder;
@@ -111,7 +96,6 @@ body {
         .tasks-title {
             margin: 0;
         }
-
         .task-count {
             margin: 0;
             font-size: 1rem;
@@ -128,7 +112,6 @@ body {
                 position: relative;
                 margin-bottom: 1.25em;
             }
-
             .task::after {
                 content: "";
                 right: 0;
@@ -139,12 +122,10 @@ body {
                 background: currentColor;
                 opacity: 0.1;
             }
-
             [type="checkbox"] {
                 opacity: 0;
                 position: absolute;
             }
-
             .custom-checkbox {
                 $size: 0.75em;
 
@@ -158,39 +139,32 @@ body {
                 display: inline-block;
                 transition: transform 150ms;
             }
-
             .task:hover .custom-checkbox,
             [type="checkbox"]:focus+label .custom-checkbox {
                 color: $color-primary;
             }
-
             .task:hover label,
             [type="checkbox"]:focus+label {
                 opacity: 0.85;
             }
-
             [type="checkbox"]:checked+label .custom-checkbox {
                 border-color: $color-primary;
                 background: $color-primary;
                 box-shadow: inset 0 0 0 2px $color-light;
             }
-
             .task label p {
                 transition: color 200ms ease-out;
             }
-
             [type="checkbox"]:checked+label p {
                 opacity: 0.5;
                 color: $color-primary;
             }
-
             .task label {
                 display: inline-flex;
                 align-items: center;
                 position: relative;
                 cursor: pointer;
             }
-
             .task label::after {
                 content: "";
                 position: absolute;
@@ -204,17 +178,14 @@ body {
                 transform-origin: left;
                 transition: transform 150ms, color 200ms ease-out;
             }
-
             [type="checkbox"]:checked+label::after {
                 transform: scaleX(1);
                 color: $color-primary;
             }
         }
-
         .btn--create {
             color: $color-primary;
         }
-
         .delete-options {
             left: $spacer;
             right: $spacer;
@@ -227,35 +198,10 @@ body {
     }
 }
 
-@media (min-width: 850px) {
-    .to-do-list {
-        margin: 0;
-    }
-}
-
 .to-do-list--placeholder {
-    grid-area: active;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    p {
-        padding: 0.5em;
-        border: 3px solid $color-light;
-        border-radius: 10px;
-        font-weight: bold;
-        opacity: 0.7;
-    }
+    display: none;
     .create-list-hint {
-        left: 0;
-        bottom: 0;
-        margin: 0;
-        position: absolute;
-        transform: translateY(-10px) translateX(-135px);
-        font-size: 1.1rem;
-        opacity: 0.3;
-        user-select: none;
-        z-index: -1;
+        display: none;
     }
 }
 
@@ -309,7 +255,6 @@ p {
     font-size: inherit;
     background: transparent;
     color: inherit;
-    user-select: none;
 }
 
 .new--list {
@@ -344,4 +289,44 @@ p {
 
 .new:focus::placeholder {
     opacity: 0.15;
+}
+
+
+@media (min-width: 850px) {
+    .title {
+        display: inline-block;
+    }
+    .wrapper-grid {
+        grid-template: ". lists active . ." / 1fr minmax(200px, 250px) minmax(350px, 600px) minmax(1rem, 250px) 1fr;
+        margin-top: 0;
+    }
+    .to-do-list {
+        margin: 0;
+    }
+    .to-do-list--placeholder {
+        grid-area: active;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        p {
+            padding: 0.5em;
+            border: 3px solid $color-light;
+            border-radius: 10px;
+            font-weight: bold;
+            opacity: 0.7;
+        }
+        .create-list-hint {
+            display: block;
+            left: 0;
+            bottom: 0;
+            margin: 0;
+            position: absolute;
+            transform: translateY(-10px) translateX(-135px);
+            font-size: 1.1rem;
+            opacity: 0.3;
+            user-select: none;
+            z-index: -1;
+        }
+    }
 }
